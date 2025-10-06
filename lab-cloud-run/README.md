@@ -1,0 +1,99 @@
+# Weather API Service with CEP Integration
+
+Esta API fornece informações de temperatura baseadas em CEPs brasileiros. O serviço converte o CEP em nome da cidade e retorna a temperatura atual em Celsius, Fahrenheit e Kelvin.
+
+## Acesso no Cloud Run
+
+Importante: Abri uma issue no forum falando especificamente dos problemas que tive ao criar o trial:
+
+Título da issue: "Erro abertura conta google OR_BACR2_44"
+
+## Pré-requisitos
+
+- Docker e Docker Compose
+- Go 1.21+ (apenas para desenvolvimento)
+- Chave de API do WeatherAPI (cadastre-se em https://www.weatherapi.com/)
+
+## Configuração
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/lucasafonsokremer/goexpert.git
+cd lab-cloud-run
+```
+
+2. Crie o arquivo `.env` na raiz do projeto com sua chave da WeatherAPI:
+```bash
+echo "WEATHER_API_KEY=sua_chave_aqui" > .env
+```
+
+## Executando com Docker Compose
+
+Para iniciar a aplicação:
+```bash
+docker-compose up --build
+```
+
+A API estará disponível em `http://localhost:8080`
+
+## Exemplos de Uso
+
+1. **CEP Válido** (retorna 200):
+```bash
+curl -i http://localhost:8080/weather/01025020  # São Paulo/SP
+```
+Resposta:
+```json
+{
+    "temp_C": 25.0,
+    "temp_F": 77.0,
+    "temp_K": 298.15
+}
+```
+
+2. **CEP Inválido** (retorna 422):
+```bash
+curl -i http://localhost:8080/weather/1234567  # CEP com formato inválido
+```
+Resposta:
+```json
+{
+    "message": "invalid zipcode"
+}
+```
+
+3. **CEP Inexistente** (retorna 404):
+```bash
+curl -i http://localhost:8080/weather/99999999  # CEP com formato válido mas inexistente
+```
+Resposta:
+```json
+{
+    "message": "can not find zipcode"
+}
+```
+
+## Executando Testes
+
+### Usando Go diretamente:
+
+```bash
+# Executar todos os testes
+go test -v ./...
+```
+
+### Usando Dockerfile.test:
+
+```bash
+# Construir e executar testes em um container
+docker build -f Dockerfile.test -t weather-api-tests .
+docker run --env-file .env weather-api-tests
+```
+
+## Tecnologias Utilizadas
+
+- Go 1.21
+- Gin Web Framework
+- Docker & Docker Compose
+- ViaCEP API
+- WeatherAPI
