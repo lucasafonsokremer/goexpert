@@ -33,6 +33,7 @@ curl -i http://localhost:8080/weather/89221370  # Joinville/SC
 Resposta:
 ```json
 {
+    "city":   "Sao Caetano do Sul",
     "temp_C": 25.0,
     "temp_F": 77.0,
     "temp_K": 298.15
