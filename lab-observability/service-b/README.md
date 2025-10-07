@@ -28,7 +28,7 @@ A API estará disponível em `http://localhost:8080`
 
 1. **CEP Válido** (retorna 200):
 ```bash
-curl -i http://localhost:8080/weather/29902555  # Joinville/SC
+curl -i http://localhost:8080/weather/29902555
 ```
 Resposta:
 ```json
