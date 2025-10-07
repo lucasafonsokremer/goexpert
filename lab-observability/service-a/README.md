@@ -32,7 +32,7 @@ A API estará disponível em `http://localhost:8080`
 ```bash
 curl -i -X POST http://localhost:8080/cep \
   -H "Content-Type: application/json" \
-  -d '{"cep": "89221370"}'  # Joinville/SC
+  -d '{"cep": "29902555"}'
 ```
 Resposta:
 ```json
