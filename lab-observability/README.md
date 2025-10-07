@@ -47,11 +47,10 @@ curl -X POST http://localhost:8080/cep \
 Resposta esperada:
 ```json
 {
-    "temp": 25.6,
-    "temp_max": 26.1,
-    "temp_min": 25.1,
-    "description": "clear sky",
-    "humidity": 75
+    "city":"Sao Caetano do Sul",
+    "temp_C": 30.3,
+    "temp_F": 86.53,
+    "temp_K": 303.45
 }
 ```
 
@@ -66,6 +65,17 @@ Resposta esperada:
 ```json
 {
     "message": "invalid zipcode"
+}
+```
+
+### Exemplo de CEP Não encontrado
+```bash
+curl -i http://localhost:8080/weather/99999999  # CEP com formato válido mas inexistente
+```
+Resposta:
+```json
+{
+    "message": "can not find zipcode"
 }
 ```
 

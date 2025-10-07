@@ -28,7 +28,7 @@ A API estará disponível em `http://localhost:8080`
 
 1. **CEP Válido** (retorna 200):
 ```bash
-curl -i http://localhost:8080/weather/89221370  # Joinville/SC
+curl -i http://localhost:8080/weather/29902555  # Joinville/SC
 ```
 Resposta:
 ```json
@@ -77,26 +77,6 @@ go test -v ./...
 # Construir e executar testes em um container
 docker build -f Dockerfile.test -t weather-api-tests .
 docker run --env-file .env weather-api-tests
-```
-
-## Estrutura do Projeto
-
-```
-.
-├── cmd
-│   └── api
-│       └── main.go          # Ponto de entrada da aplicação
-├── internal
-│   ├── handlers
-│   │   └── weather_handler.go
-│   └── services
-│       ├── cep_service.go
-│       ├── cep_service_test.go
-│       └── weather_service.go
-├── Dockerfile
-├── Dockerfile.test
-├── docker-compose.yml
-└── README.md
 ```
 
 ## Tecnologias Utilizadas
