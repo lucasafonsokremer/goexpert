@@ -8,6 +8,8 @@ Importante: Abri uma issue no forum falando especificamente dos problemas que ti
 
 Título da issue: "Erro abertura conta google OR_BACR2_44"
 
+[Link com o problema de criação de conta na Google Cloud disponível aqui](https://discuss.google.dev/t/repeated-or-bacr2-44-error-during-gcp-free-trial-billing-activation-no-resolution-despite-months-of-delay/245979)
+
 ## Pré-requisitos
 
 - Docker e Docker Compose
