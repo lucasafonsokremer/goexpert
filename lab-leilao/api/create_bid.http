@@ -1,0 +1,9 @@
+POST http://localhost:8080/bid HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "user_id": "9d90c058-294c-47a8-8f81-229202359424",
+  "auction_id": "AUCTION_UUID",
+  "amount": 1500.00
+}
